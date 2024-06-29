@@ -2,7 +2,9 @@ import { AnimalsGrid } from '@/components/animalGrid/AnimalsGrid'
 import React from 'react'
 
 const page = async () => {
-  const response = await fetch('http://localhost:3000/api/animals')
+  const response = await fetch(
+    'https://critical-animals.vercel.app/api/animals'
+  )
   const data = await response.json()
   console.log(data)
 
