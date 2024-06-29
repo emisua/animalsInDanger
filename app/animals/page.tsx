@@ -2,9 +2,9 @@ import { AnimalsGrid } from '@/components/animalGrid/AnimalsGrid'
 import React from 'react'
 
 const page = async () => {
-  if (!process.env.NEXT_PUBLIC_API_URL) return <p>no hay api key...</p>
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/animals`)
-  const { animals } = await response?.json()
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+  const res = await fetch(`${apiBaseUrl}/api/animals`)
+  const { animals } = await res?.json()
 
   if (!animals) return <p>Cargando...</p>
   else {
