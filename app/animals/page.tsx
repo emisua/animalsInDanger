@@ -1,13 +1,25 @@
 import { AnimalsGrid } from '@/components/animalGrid/AnimalsGrid'
 import React from 'react'
 
-const page = async () => {
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
-  const res = await fetch(`${apiBaseUrl}/api/animals`)
-  const { animals } = await res?.json()
+const Page = async () => {
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL
 
-  if (!animals) return <p>Cargando...</p>
-  else {
+  try {
+    const res = await fetch(`${apiBaseUrl}/api/animals`)
+
+    if (!res.ok) {
+      const text = await res.text()
+      console.error('Error response:', text)
+
+      throw new Error('Failed to fetch animals')
+    }
+
+    const { animals } = await res.json()
+
+    if (!animals) {
+      return <p>Cargando...</p>
+    }
+
     return (
       <main className='container mx-auto my-16'>
         <h1 className='text-4xl font-bold'>
@@ -16,7 +28,10 @@ const page = async () => {
         <AnimalsGrid animals={animals} />
       </main>
     )
+  } catch (error) {
+    console.error('Error fetching animals:', error)
+    return <p>Error al cargar los datos de animales.</p>
   }
 }
 
-export default page
+export default Page
