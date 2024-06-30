@@ -9,8 +9,6 @@ const Page = async ({ params }: { params: { path: string } }) => {
       next: { revalidate: 0 },
     })
     if (!response.ok) {
-      const text = await response.text()
-
       throw new Error(`Failed to fetch animal data: ${response.statusText}`)
     }
 

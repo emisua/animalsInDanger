@@ -13,21 +13,20 @@ const AnimalCard = ({ animal }: { animal: Animal }) => {
     '5': 'bg-red-600',
   }
   return (
-    <article className='flex flex-col items-center gap-4 border p-4 rounded-md border-gray-700/50'>
-      <div className='img max-w-16 rounded-full overflow-hidden'>
-        <img
-          src='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQLglv08LlfTQb9L1rHlxFIkSJ72agTTuhsLP3kB53unIwTtqaJ'
-          alt={animal.common_name}
-        />
-      </div>
-      <div className='content flex flex-col gap-2 flex-1 w-full text-center'>
-        <h4 className='font-bold'>
-          {animal.common_name}
+    <article className='flex flex-col items-center border rounded-md border-gray-700/50 hover:border-yellow-200 transition-all duration-300 bg-gray-950 overflow-hidden text-gray-300'>
+      <img
+        className='aspect-[16/8] object-cover'
+        src='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQLglv08LlfTQb9L1rHlxFIkSJ72agTTuhsLP3kB53unIwTtqaJ'
+        alt={animal.common_name}
+      />
 
-          <span className='italic font-light opacity-50 pl-1'>
+      <div className='content flex flex-col gap-4 flex-1 w-full text-center p-4'>
+        <div className='title '>
+          <h4 className='font-bold'>{animal.common_name}</h4>
+          <h6 className='italic font-light opacity-50 pl-1 text-sm'>
             ({animal.scientific_name})
-          </span>
-        </h4>
+          </h6>
+        </div>
 
         <p className={'flex items-center justify-center gap-2 text-sm'}>
           <span
@@ -40,7 +39,7 @@ const AnimalCard = ({ animal }: { animal: Animal }) => {
         <small className='flex flex-1 justify-center items-end'>
           <Link
             className='text-yellow-200 hover:text-teal-500'
-            href={`/animals/${removeAccents(animal.path)}`}
+            href={`/${removeAccents(animal.path)}`}
           >
             + info
           </Link>
