@@ -22,7 +22,7 @@ const Page = async () => {
 
     return (
       <main className='container mx-auto my-16 max-w-screen-xl'>
-        <h1 className='text-4xl font-bold'>
+        <h1 className='text-4xl font-bold text-gray-200'>
           Listado de animales en peligro de extinción
         </h1>
         <AnimalsGrid animals={animals} />
