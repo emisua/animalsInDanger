@@ -5,7 +5,7 @@ const Page = async () => {
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL
 
   try {
-    const res = await fetch(`${apiBaseUrl}/api/animals`)
+    const res = await fetch(`${apiBaseUrl}/api/animals`, { cache: 'no-store' })
 
     if (!res.ok) {
       const text = await res.text()
