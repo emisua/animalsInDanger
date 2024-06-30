@@ -1,3 +1,4 @@
+import AnimalContent from '@/components/animalContent/AnimalContent'
 import React from 'react'
 
 const Page = async ({ params }: { params: { path: string } }) => {
@@ -12,13 +13,9 @@ const Page = async ({ params }: { params: { path: string } }) => {
       throw new Error(`Failed to fetch animal data: ${response.statusText}`)
     }
 
-    const data = await response.json()
+    const animal = await response.json()
 
-    return data && data.animals ? (
-      <h1>{JSON.stringify(data.animals)}</h1>
-    ) : (
-      <p>Cargando...</p>
-    )
+    return animal ? <AnimalContent animal={animal} /> : <p>Cargando...</p>
   } catch (error) {
     return <p>Error al cargar los datos del animal.</p>
   }
