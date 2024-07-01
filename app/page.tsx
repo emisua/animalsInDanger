@@ -21,7 +21,7 @@ const Page = async () => {
     }
 
     return (
-      <main className='container mx-auto my-16 max-w-screen-xl'>
+      <main className='container mx-auto py-16 max-w-screen-xl p-4 bg-black'>
         <h1 className='text-4xl font-bold text-gray-200'>
           Listado de animales en peligro de extinción
         </h1>
