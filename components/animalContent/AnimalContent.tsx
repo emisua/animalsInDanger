@@ -1,10 +1,10 @@
 'use client'
 import { adapterAnimal } from '@/adapters/adapterAnimal'
-import { Animal } from '@/types/types'
+import { AdaptedAnimal, Animal } from '@/types/types'
 import React from 'react'
 
 const AnimalContent = ({ animal }: { animal: Animal }) => {
-  const adaptedAnimal = adapterAnimal(animal)
+  const adaptedAnimal: AdaptedAnimal = adapterAnimal(animal)
   return (
     <article
       className={`min-h-screen  flex justify-end items-center p-20`}
@@ -20,7 +20,7 @@ const AnimalContent = ({ animal }: { animal: Animal }) => {
           {Object.keys(adaptedAnimal).map((key: any) => (
             <li key={key}>
               <strong>{key.charAt(0).toUpperCase() + key.slice(1)}: </strong>
-              {adaptedAnimal[key]}
+              {adaptedAnimal[key as keyof AdaptedAnimal]}
             </li>
           ))}
         </ul>

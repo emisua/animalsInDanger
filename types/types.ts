@@ -28,4 +28,19 @@ export interface Animal {
   danger_level: DangerLevel
 }
 
+export interface AdaptedAnimal {
+  'Nombre com\u00FAn': string
+  'Nombre cient\u00EDfico': string
+  Habitat: string
+  Dieta: string
+  Longevidad: string
+  Altura: string
+  Peso: string
+  'Poblaci\u00F3n estimada': string
+  'Motivos del peligro': string
+  'Esfuerzos de conservaci\u00F3n': string
+  Tipo: string
+  Colores: string[]
+}
+
 export type animalWithoutId = Omit<Animal, 'id'>
