@@ -15,7 +15,7 @@ const AnimalContent = ({ animal }: { animal: Animal }) => {
           backgroundSize: 'cover',
         }}
       >
-        <section className='lg:max-w-md w-full flex flex-col bg-white/10 backdrop-blur-sm p-4 rounded-md '>
+        <section className='flex flex-col bg-white/10 backdrop-blur-sm p-4 rounded-md'>
           <h1 className='text-4xl font-bold'>{animal?.common_name}</h1>
           <h6>{animal?.geographic_distribution}</h6>
           <ul className='datos mt-4'>
@@ -28,9 +28,7 @@ const AnimalContent = ({ animal }: { animal: Animal }) => {
           </ul>
         </section>
       </article>
-      <article
-        className={`min-h-screen flex sm:hidden flex-col  lg:p-20  bg-black`}
-      >
+      <article className={`min-h-screen flex sm:hidden flex-col bg-black`}>
         <Link
           className='goBack absolute top-4 left-4 bg-white/30 py-1 px-2 rounded backdrop-blur-md text-sm'
           href='/'
@@ -38,7 +36,7 @@ const AnimalContent = ({ animal }: { animal: Animal }) => {
           Volver
         </Link>
         <img src='/img/oso-polar.jpg' alt={animal?.common_name} />
-        <section className='lg:max-w-md w-full flex flex-col  text-gray-200'>
+        <section className='flex flex-col  text-gray-200'>
           <header className='flex flex-row justify-center items-center'>
             <div className='title bg-gray-900 p-4 flex-1'>
               <h1 className='text-4xl font-bold '>{animal?.common_name}</h1>
@@ -49,14 +47,14 @@ const AnimalContent = ({ animal }: { animal: Animal }) => {
               <p className='text-4xl font-bold'>{animal?.danger_level}</p>
             </div>
           </header>
-          <main className='p-4'>
-            <ul className='datos mt-4 '>
+          <main className='px-4 py-8'>
+            <ul className='datos'>
               {Object.keys(adaptedAnimal).map((key: any) => (
-                <li key={key}>
-                  <strong>
-                    {key.charAt(0).toUpperCase() + key.slice(1)}:{' '}
-                  </strong>
-                  {adaptedAnimal[key as keyof AdaptedAnimal]}
+                <li key={key} className='mb-2'>
+                  <p className='font-semibold text-gray-200'>
+                    {key.charAt(0).toUpperCase() + key.slice(1)}:
+                  </p>
+                  <p>{adaptedAnimal[key as keyof AdaptedAnimal]}</p>
                 </li>
               ))}
             </ul>
