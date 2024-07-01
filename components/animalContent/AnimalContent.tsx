@@ -39,7 +39,7 @@ const AnimalContent = ({ animal }: { animal: Animal }) => {
         <section className='flex flex-col  text-gray-200'>
           <header className='flex flex-row justify-center items-center'>
             <div className='title bg-gray-900 p-4 flex-1'>
-              <h1 className='text-4xl font-bold '>{animal?.common_name}</h1>
+              <h1 className='text-2xl font-bold '>{animal?.common_name}</h1>
               <h6>{animal?.geographic_distribution}</h6>
             </div>
             <div className='danger-level p-4 min-w-28 flex justify-center items-center flex-col bg-gray-950'>
